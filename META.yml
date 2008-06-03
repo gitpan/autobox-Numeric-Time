@@ -6,7 +6,7 @@ build_requires:
   Test::Base: 0
   Test::More: 0
 distribution_type: module
-generated_by: 'Module::Install version 0.71'
+generated_by: 'Module::Install version 0.75'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.3.html
@@ -17,5 +17,5 @@ no_index:
     - inc
     - t
 requires:
-  autobox: 0
-version: 0.01
+  autobox: 2.55
+version: 0.02

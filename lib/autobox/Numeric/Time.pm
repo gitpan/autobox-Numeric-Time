@@ -4,49 +4,56 @@ use strict;
 use warnings;
 use Carp;
 
-use autobox;
+use base qw(autobox);
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
-sub SCALAR::seconds {
+sub import {
+    shift->SUPER::import(NUMBER => 'autobox::Numeric::Time::Impl', @_);
+}
+
+package # hide from pause
+    autobox::Numeric::Time::Impl;
+
+sub seconds {
     return $_[0];
 }
-*SCALAR::second = \&SCALAR::seconds;
+*second = \&seconds;
 
-sub SCALAR::minutes {
+sub minutes {
     return $_[0] * 60;
 }
-*SCALAR::minute = \&SCALAR::minutes;
+*minute = \&minutes;
 
-sub SCALAR::hours {
+sub hours {
     return $_[0] * 3600;
 }
-*SCALAR::hour = \&SCALAR::hours;
+*hour = \&hours;
 
-sub SCALAR::days {
-    return $_[0] * 24->hours;
+sub days {
+    return $_[0] * 3600 * 24;
 }
-*SCALAR::day = \&SCALAR::days;
+*day = \&days;
 
-sub SCALAR::weeks {
-    return $_[0] * 7->days;
+sub weeks {
+    return $_[0] * 3600 * 24 * 7;
 }
-*SCALAR::week = \&SCALAR::weeks;
+*week = \&weeks;
 
-sub SCALAR::fortnights {
-    return $_[0] * 2->weeks;
+sub fortnights {
+    return $_[0] * 3600 * 24 * 7 * 2;
 }
-*SCALAR::fortnight = \&SCALAR::fortnights;
+*fortnight = \&fortnights;
 
-sub SCALAR::months {
-    return $_[0] * 30->days;
+sub months {
+    return $_[0] * 3600 * 24 * 30;
 }
-*SCALAR::month = \&SCALAR::months;
+*month = \&months;
 
-sub SCALAR::years {
-    return $_[0] * 365.25->days;
+sub years {
+    return $_[0] * 3600 * 24 * 365.25;
 }
-*SCALAR::year = \&SCALAR::years;
+*year = \&years;
 
 1;
 

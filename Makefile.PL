@@ -3,7 +3,7 @@ use inc::Module::Install;
 name        'autobox-Numeric-Time';
 all_from    'lib/autobox/Numeric/Time.pm';
 
-requires 'autobox'               => 0;
+requires 'autobox'               => 2.55;
 
 build_requires 'Test::More'      => 0;
 build_requires 'Test::Base'      => 0;

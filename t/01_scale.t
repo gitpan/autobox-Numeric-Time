@@ -10,7 +10,7 @@ filters {
 spec_file './t/scale.spec';
 
 sub autoboxnize {
-    return "use autobox; use autobox::Numeric::Time; ".shift;
+    return "use autobox::Numeric::Time; ".shift;
 }
 
 plan tests => 1 * blocks;
